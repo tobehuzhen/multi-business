@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd"
+        default-lazy-init="false">
+    <!--<bean id="myJob" class="com.example.business.job.MyJob"></bean>-->
+
+    <context:component-scan base-package="com.example.business.job" />
+
+    <!--<bean id="myJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="myJob"></property>
+        <property name="targetMethod" value="execute"></property>
+        <property name="concurrent" value="false"></property>
+    </bean>
+
+    <bean id="myTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+            <ref bean="myJobDetail"/>
+        </property>
+        <property name="cronExpression">
+            <value>*/10 * * * * ?</value>
+        </property>
+    </bean>
+
+    <bean id="sheduler" lazy-init="false" scope="singleton" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="myTrigger"/>
+            </list>
+        </property>
+    </bean>
+-->
+   <!-- <task:annotation-driven scheduler="myScheduler" mode="proxy"/>
+    <task:scheduler id="myScheduler" pool-size="10" />-->
+
+    <task:scheduled-tasks>
+        <task:scheduled ref="myScheduler" method="doJob" cron="*/10 * * * * ?"/>
+    </task:scheduled-tasks>
+
+</beans>
