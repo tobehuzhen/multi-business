@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/handler")
 public class HandlerController {
 
-    @ResponseBody
+
     @RequestMapping(value = "/here")
     public String doHandler(){
-        return "helloSmkhz";
+        return "index";
     }
 }

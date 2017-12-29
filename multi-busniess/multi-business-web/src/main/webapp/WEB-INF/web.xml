@@ -28,6 +28,10 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>multi-dispatcher</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <!--<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.js</url-pattern>
+  </servlet-mapping>--><!--这块与在dispatcher-servlet.xml文件中的<mvc:default-servlet-handler/>可替换使用，不过替换后，需将其他的静态资源后缀名也须添加-->
 </web-app>

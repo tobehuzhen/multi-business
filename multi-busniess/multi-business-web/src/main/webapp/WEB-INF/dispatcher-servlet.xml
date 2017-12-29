@@ -20,4 +20,14 @@
 
     <context:component-scan base-package="com.example.multi.controller" />
 
+    <mvc:annotation-driven />
+
+    <mvc:default-servlet-handler/><!--为了让静态资源还是使用默认servlet处理-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix" value="/WEB-INF/template/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+
 </beans>
