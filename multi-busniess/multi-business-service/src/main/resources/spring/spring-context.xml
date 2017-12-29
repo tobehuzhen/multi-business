@@ -11,11 +11,10 @@
         http://www.springframework.org/schema/task
         http://www.springframework.org/schema/task/spring-task.xsd"
         default-lazy-init="false">
-    <!--<bean id="myJob" class="com.example.business.job.MyJob"></bean>-->
 
     <context:component-scan base-package="com.example.business.job" />
 
-    <!--<bean id="myJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <bean id="myJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject" ref="myJob"></property>
         <property name="targetMethod" value="execute"></property>
         <property name="concurrent" value="false"></property>
@@ -37,12 +36,9 @@
             </list>
         </property>
     </bean>
--->
-   <!-- <task:annotation-driven scheduler="myScheduler" mode="proxy"/>
-    <task:scheduler id="myScheduler" pool-size="10" />-->
 
-    <task:scheduled-tasks>
+   <!-- <task:scheduled-tasks>
         <task:scheduled ref="myScheduler" method="doJob" cron="*/10 * * * * ?"/>
-    </task:scheduled-tasks>
+    </task:scheduled-tasks>-->
 
 </beans>
