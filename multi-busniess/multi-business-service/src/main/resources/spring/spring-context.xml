@@ -25,7 +25,7 @@
             <ref bean="myJobDetail"/>
         </property>
         <property name="cronExpression">
-            <value>*/10 * * * * ?</value>
+            <value>0 0 0 1 * ?</value>
         </property>
     </bean>
 
